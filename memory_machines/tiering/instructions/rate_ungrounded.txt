@@ -1,0 +1,81 @@
+You will evaluate memory prompts designed for spaced repetition systems. Memory prompts are flashcard-style questions and answers that help users retain information through scheduled review over time.
+
+Your task is to rate a generated memory prompt on a scale from T0 to T3 based on how well it captures the user's interest and how suitable it is for long-term spaced repetition review.
+
+Here is the source text that the user was reading when they made a highlight:
+
+<source_context>
+{SOURCE_DESCRIPTION}
+</source_context>
+
+Now, here is the memory prompt you need to evaluate:
+
+<generated_memory_prompt>
+{GENERATED_PROMPT}
+</generated_memory_prompt>
+
+## Rating Scale (T0-T3)
+
+**T3 - Ready to Review**: The memory prompt is well-targeted to the user's likely interest and well-constructed for spaced repetition. It can be used as-is in a review system. The question is specific, unambiguous, and will consistently trigger the same retrieval pathway. The answer captures a meaningful detail worth remembering long-term.
+
+**T2 - Needs Polish**: The memory prompt is semantically aligned with the user's interest and could be reviewed in its current form, but would benefit from minor tweaks to wording, phrasing, or context. The core targeting and construction are sound, but small improvements would make it more effective.
+
+**T1 - Needs Refactor**: The memory prompt is roughly in the right region of meaning but is ineffective for review in its current form. It requires substantial restructuring. Common issues include: the question is too vague or ambiguous (soliciting multiple valid responses), lacks sufficient contextual cues for reliable recall, is too wordy, or lacks the depth/specificity needed for worthwhile long-term review.
+
+**T0 - Off-Target**: The memory prompt focuses on details that are not aligned with the user's likely interest. It may be well-constructed as a flashcard, but it targets the wrong information—either focusing on an entirely different aspect of the passage (macro misalignment) or being in the general vicinity but entailing details the user doesn't care about (micro misalignment).
+
+## Key Evaluation Criteria
+
+A good memory prompt must satisfy two criteria:
+1. **Meaningful**: It captures details the user genuinely cares about long-term (based on what they highlighted)
+2. **Reliably Recallable**: It can be consistently retrieved from memory even after months, with unambiguous questions and sufficient context
+
+Poor targeting means the prompt doesn't align with the user's interest. Poor construction means the prompt won't work well in spaced repetition (too vague, lacks context, or has multiple valid answers).
+
+## Critical Distinction: T1 vs T2
+
+The gap between T1 and T2 is substantial and represents the threshold of reviewability.
+
+- **T2 prompts are reviewable**: Despite needing polish, they can be used for spaced repetition right now. The question adequately cues the intended retrieval target, and the semantic alignment is good. Minor improvements to wording or phrasing would enhance effectiveness, but the core retrieval mechanics work.
+- **T1 prompts are NOT reviewable**: They cannot be used effectively in their current state. Even if semantically aligned with the user's interest, they fail as memory prompts due to critical flaws in the question that make reliable recall impossible.
+
+**Focus on the Question, Not the Answer**
+
+The stringency of evaluation should be applied primarily to the **question**, as this is what cues recall. Answers can contain auxiliary details, context, or elaboration—this is fine and often helpful. What matters is whether the question reliably points to a specific retrieval target.
+
+When distinguishing T1 from T2, focus on these question-quality checks:
+
+- **What exactly is being asked?** Is the retrieval target that the question is cueing clear and specific, or could the question legitimately elicit multiple different answers?
+- **Does the question provide sufficient cues?** Does it include enough context, specificity, or framing to reliably trigger the intended answer, or is the connection too loose or ambiguous?
+- **Is the question too generic or definitional?** Generic questions like "what is X?" or "what is the key principle of X?" are often too vague to reliably cue a specific answer. They may seem semantically aligned but fail the reviewability test. Compare this to more specific, contextual questions like "what advantage does X have over Y?" which provide stronger retrieval cues.
+
+A prompt can be semantically on-target but still be T1 if the question fails these checks. Don't downgrade a prompt just because the answer contains extra context or supporting details—evaluate whether the question successfully cues the core fact.
+
+## Your Task
+
+Before providing your final rating, consider the following:
+
+1. **Identify the user's likely interest**: Quote the specific part of the source context that likely captured the user's interest. What aspect of the highlight likely interested the user? What detail stands out as striking or memorable?
+
+2. **Check targeting alignment**: Does the memory prompt target that interest, or does it focus on something else? If it's off-target, this indicates T0.
+
+3. **Evaluate construction for reviewability**: This is where you must be especially careful with the T1 vs T2 distinction. Work through these checks explicitly:
+   - Is the phrasing too generic or definitional (e.g., "what is X?" or "what is the key principle of X?")?
+   - Does it provide sufficient contextual cues (e.g., through comparison, specific framing, or named anchors)?
+   - Are specific contextual anchors from the source preserved, or have they been replaced with generic references?
+   - Could the question legitimately elicit multiple valid answers?
+   - If any of these checks reveal vagueness, ambiguity, or loss of specificity, the prompt is likely T1 (not reviewable), even if it's semantically aligned.
+
+4. **Identify what's missing or misaligned**: What specific elements would need to change for this to become a T3 prompt? Consider:
+   - Minor adjustments only (wording, auxiliary details, small clarifications) → T2
+   - Core structural changes (adding/removing knowledge components, splitting compound prompts, changing scope) → T1
+   - Near-complete rewrite (wrong focus, wrong predicate) → T1
+   - Wrong recall target entirely → T0
+   
+   This gap analysis helps distinguish between prompts that are close to working (T2) versus those that need substantial reconstruction (T1).
+
+After your analysis, provide your final rating in this exact format:
+
+**Classification: [Tier]**
+
+Where [Tier] is T0, T1, T2, or T3.

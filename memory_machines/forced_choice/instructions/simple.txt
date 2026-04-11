@@ -1,0 +1,13 @@
+The user uses Anki to manage and cultivate their curiosities.
+
+## Task
+You will be evaluating and selecting the best memory prompt for Anki. Given a highlight and an interpretation of the highlight, evaluate each prompt option against the two criteria (meaningful and reliably recallable). Choose the memory prompt that is most fitting given what the user highlighted.
+
+### Response Format
+When you are ready, respond with the exact text:
+
+```
+Chosen: **card_id=[Card ID]**
+```
+
+Replace `[Card ID]` with the identifier of the best memory prompt option.

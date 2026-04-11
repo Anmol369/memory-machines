@@ -1,0 +1,147 @@
+Your task is to identify whether a memory prompt is ambiguous. This is a focused evaluation of one specific aspect of the broader "stability" requirement for memory prompts: whether the question can be understood and answered in isolation, months or years after it was created.
+
+The user employs a spaced repetition system that presents prompts at expanding intervals—often months or years apart. An effective memory prompt must be **stable**: it can be consistently retrieved from memory even after months, when reviewed in isolation without access to the original context.
+
+## Definition
+
+A memory prompt is considered **ambiguous** if the QUESTION cannot be answered in isolation without referring back to the source text, or if it is unclear how someone might recall the answer using only the question.
+
+**Key Principle**: If reading the question raises another question like "which article?" or "according to whom?", then the memory prompt is ambiguous.
+
+### Common Causes of Ambiguity
+
+1. **Vague source references**: "According to the article/text/author..." without naming the specific source
+   - ✗ BAD: "According to the article, what causes X?"
+   - ✓ GOOD: "According to Kahneman's 'Thinking Fast and Slow', what causes X?"
+   
+2. **Undefined or metaphorical terms**: Using non-standard terminology without providing context
+   - ✗ BAD: "What is the 'sound' of an algorithm?" (metaphor unclear without source)
+   - ✓ GOOD: "What is the 'garbage collection' process in programming?" (standard term with known meaning)
+
+3. **Missing necessary context**: Questions that reference "this", "that", "the system" without specifying what
+   - ✗ BAD: "What are the main advantages of this approach?"
+   - ✓ GOOD: "What are the main advantages of test-driven development?"
+
+### What Ambiguity Is NOT
+
+**Ambiguity is different from being overly broad.** A question can be perfectly clear and self-contained but still be poorly constructed because it invites multiple valid answers. For example:
+
+- "What is a key characteristic of resilient systems?" ← This is **broad**, not ambiguous (there are many characteristics; unclear which one is wanted)
+- "According to the article, what is a key characteristic?" ← This is **ambiguous** (which article?)
+
+Overly broad questions are a separate construction problem related to **atomicity** (testing one specific thing), not ambiguity.
+
+## Examples
+
+### Unambiguous Examples
+
+> Q. What is the cognitive heuristic known as "Occam's Razor"?
+> A. The principle that, when presented with competing hypotheses about the same prediction, one should select the one that makes the fewest assumptions.
+
+Reasoning: Asks for the definition of a well-established, named concept. Self-contained.
+
+---
+
+> Q. What is the approximate escape velocity of Earth at the surface?
+> A. Approximately 11.2 kilometers per second (or 25,000 mph).
+
+Reasoning: Clear question with a specific, factual target for a well-defined entity (Earth). No ambiguity about what is being asked.
+
+---
+
+> Q. In his book "Thinking, Fast and Slow," how does Daniel Kahneman define "System 1" thinking?
+> A. As the brain's fast, automatic, intuitive, and emotional mode of thinking.
+
+Reasoning: Attributed to a specific author (Kahneman) and source (his book). Even if the user doesn't remember the book's details, the question is answerable because it asks about a named concept from a named source.
+
+---
+
+> Q. What was the primary scientific goal of the Human Genome Project?
+> A. To determine the sequence of nucleotide base pairs that make up human DNA and to identify and map all of the genes of the human genome.
+
+Reasoning: References a specific, well-known project. The question provides enough context to be answerable.
+
+---
+
+> Q. Why does a helium-filled balloon float upwards in the air?
+> A. Because helium is less dense than the surrounding air, causing the buoyant force exerted by the air to be greater than the gravitational force on the balloon.
+
+Reasoning: Simple question about a common, observable phenomenon. No ambiguity about what is being asked.
+
+---
+
+> Q. What are the three fundamental components of a basic electrical circuit?
+> A. 1. A voltage source (e.g., a battery)
+> 2. A conductive path (e.g., a wire)
+> 3. A load (e.g., a light bulb) that consumes energy.
+
+Reasoning: Asks for intrinsically true, core principles of a well-defined system. The question is self-contained.
+
+---
+
+> Q. In the context of object-oriented programming, what is the principle of "encapsulation"?
+> A. The bundling of data and the methods that operate on that data into a single unit, or "class," and restricting direct access to some of the object's components.
+
+Reasoning: Strong recall cue ("encapsulation") with contextual framing ("object-oriented programming") that makes the question unambiguous.
+
+---
+
+> Cloze: [Richard Feynman - "The Value of Science"] On the importance of intellectual freedom, Feynman argued: "There is one thing that is not subject to any authority... {{c1::This freedom to doubt is an important matter in the sciences and, I believe, in other fields.}}"
+
+Reasoning: Specific attribution (Feynman, named essay) provides context. The prompt is self-contained despite being sourced.
+
+
+### Ambiguous Examples
+
+> Q. According to the article, what is the primary obstacle to widespread fusion energy adoption?
+> A. The difficulty of achieving a net energy gain (Q > 1) in a sustained reaction.
+
+Reasoning: "According to the article" is vague—which article? The question cannot be answered without knowing the source. Should specify the article title, author, or specific claim being referenced.
+
+---
+
+> Q. What is the "sound" of an algorithm?
+> A. Its computational complexity and efficiency.
+
+Reasoning: "Sound" is a metaphorical term here, not a standard concept in computer science. Without the source context, it's unclear what "sound" means in this usage.
+
+---
+
+> Q. What is the main benefit of this approach?
+> A. It reduces cognitive load by automating decision-making.
+
+Reasoning: "This approach" is undefined—which approach? The question needs to specify what system or method is being discussed.
+
+---
+
+> Q. According to the author, what causes innovation to stagnate in large organizations?
+> A. Risk-averse culture and bureaucratic processes.
+
+Reasoning: "The author" is too vague. Which author? Without attribution to a specific person or work, the question is unanswerable in isolation.
+
+---
+
+> Q. What does the text mean by "semantic drift"?
+> A. The gradual change in meaning of a word or concept over time within a community.
+
+Reasoning: "The text" is unspecified. If "semantic drift" is a standard term, the question should ask for its definition directly. If it's being used in a specialized way, it needs specific attribution.
+
+---
+
+> Q. What is a "knowledge garden"?
+> A. A personal digital space for cultivating and connecting notes and ideas over time.
+
+Reasoning: "Knowledge garden" appears to be non-standard terminology or a neologism from a specific source. Without context about whose definition this is or where it comes from, the question assumes familiarity with a term that may not be universally understood. If this is from Andy Matuschak's writing, it should say so; if it's asking for a general concept, it needs clearer framing.
+
+## Output Format
+
+You must respond with a JSON like the following:
+
+```json
+{
+    "reason": "An explanation describing whether the memory prompt is ambiguous and why",
+    "ambiguous": true/false
+}
+```
+
+where `ambiguous` is a boolean value indicating whether the provided memory prompt is ambiguous.

@@ -1,0 +1,48 @@
+command:
+  - ${env}
+  - python
+  - -m
+  - memory_machines.training.classifier.train
+  - ${args}
+method: grid
+project: memory-machines-pluckability-classifier
+
+parameters:
+  # Fixed paths
+  data_dir:
+    value: memory_machines/training/data/classifier
+
+  # Model
+  model_name:
+    value: OpenPipe/Qwen3-14B-Instruct
+
+  # LoRA
+  lora_r:
+    value: 8
+
+  # Hyperparameter sweeps (same as other classifiers)
+  learning_rate:
+    values: [5e-6, 2e-5, 5e-5]
+
+  batch_size:
+    values: [8, 16]
+
+  epochs:
+    values: [1, 2, 3]
+
+  input_format:
+    value: full-context
+
+  # Fixed config
+  max_length:
+    value: 2048
+
+  seed:
+    value: 42
+
+  wandb_project:
+    value: memory-machines-pluckability-classifier
+
+metric:
+  name: eval/roc_auc
+  goal: maximize

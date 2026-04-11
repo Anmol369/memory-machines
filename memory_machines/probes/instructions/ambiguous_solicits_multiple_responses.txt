@@ -1,0 +1,188 @@
+# Task
+
+Your task is to identify whether a memory prompt solicits multiple responses. This is a focused evaluation of whether a memory prompt is **atomic**—testing one specific piece of knowledge rather than inviting multiple valid answers. This is one aspect of the broader "stability" requirement: prompts that solicit multiple responses create review friction because the user can't reliably predict which answer is wanted.
+
+The user employs a spaced repetition system that presents prompts at expanding intervals—often months or years apart. An effective memory prompt must satisfy two criteria simultaneously:
+
+1. **Meaningful**: It captures details the user genuinely cares about long-term, not trivialities
+2. **Stable**: It can be consistently retrieved from memory even after months, when reviewed in isolation without access to the original context
+
+## Definition
+
+A memory prompt is considered to **solicit multiple responses** if it can be answered in multiple ways—specifically, if two users might provide different answers even after reading the same source text, or if the same user reviewing months later might recall a different valid answer.
+
+**Key Principle**: If the target of recall cannot be clearly and unambiguously identified from the question alone, then the memory prompt solicits multiple responses.
+
+## Common Patterns That Indicate Multiple Responses
+
+### 1. Subjective Qualifiers
+Words like "primary," "main," "most important," "key," "fundamental," "essential" suggest prioritization or ranking that may not be clearly established in the source.
+
+- ✗ BAD: "What is the **primary** benefit of X?"
+- ✗ BAD: "What is a **key** characteristic of Y?"
+- ✓ GOOD: "What are **the three** benefits of X?" (specific enumeration)
+
+### 2. Indefinite Articles ("A/An")
+Using "a" or "an" explicitly signals one answer among many possibilities, making the specific answer arbitrary.
+
+- ✗ BAD: "What is **an** effective strategy for X?"
+- ✗ BAD: "What is **a** consequence of Y?"
+- ✓ GOOD: "What is **the** strategy recommended by [Author]?" (specific, attributed)
+
+### 3. Open-Ended "Why Important/Critical" Questions
+Asking why something is "important," "critical," or "valuable" invites philosophical justifications rather than targeting a specific explanation.
+
+- ✗ BAD: "Why is X **critical** to the scientific method?"
+- ✗ BAD: "Why is Y **important** for productivity?"
+- ✓ GOOD: "Why does X happen?" (targets specific causal explanation)
+- ✓ GOOD: "Why is X considered a weakness?" (targets specific logical consequence)
+
+### 4. Overly Broad Questions
+Questions so general that sources would discuss many valid answers.
+
+- ✗ BAD: "What is a consequence of social media on society?"
+- ✓ GOOD: "According to [Study], what was the measured effect of social media on teen mental health?"
+
+### 5. Vague "How" Questions
+"How" questions work when they target concrete processes but fail when too abstract.
+
+- ✗ BAD: "How does social media affect society?" (too broad)
+- ✓ GOOD: "How does reverse osmosis purify water?" (concrete, well-defined process)
+
+## When Attribution and Specificity Save Potentially Broad Questions
+
+Even potentially broad question patterns can work if they:
+1. Attribute to a specific person/framework/source
+2. Ask for that specific perspective's answer
+3. Use definite articles or enumeration
+
+**Example that works:**
+> Q. According to Clayton Christensen's theory of disruptive innovation, why do established companies fail to adopt disruptive innovations?
+> A. Because they're rationally focused on their most profitable customers, who don't initially want the disruptive product.
+
+This "why" question succeeds because it's attributed to Christensen's specific theory, making clear we want *his* explanation, not "a reason" or "the main reason."
+
+## Examples with a Clear Target of Recall
+
+### Example: Specific Enumerated Lists from Named Sources
+
+**Memory Prompt:**
+> Q. According to Jane Jacobs' "The Death and Life of Great American Cities," what are the four conditions required for a city district to generate vibrant diversity?
+> A. 1) Mixed primary uses; 2) Short blocks; 3) A mix of building ages and conditions; 4) A dense concentration of people.
+
+**Feedback:**
+This is a strong prompt because it precisely targets a specific, enumerated list ("**the four** conditions") from a named source. The definite article + number makes the target unambiguous.
+
+### Example: Well-Established Term Definitions
+
+**Memory Prompt:**
+> Q. What is "technical debt" in software engineering?
+> A. The implied cost of rework caused by choosing an easy, limited solution now instead of using a better approach that would take longer.
+
+**Feedback:**
+This is a high-quality prompt because it asks for the definition of a well-established, specific term. Standard terminology has widely accepted definitions, making the target of recall clear.
+
+### Example: Attributed Distinctions and Contrasts
+
+**Memory Prompt:**
+> Q. In his essay "You and Your Research," what distinction does Richard Hamming draw between "great scientists" and "good scientists"?
+> A. Great scientists focus on important problems, while good scientists may work on problems they are confident they can solve, regardless of importance.
+
+**Feedback:**
+This prompt is effective because it isolates a single, memorable idea through attribution. By asking for Hamming's specific distinction (not "a distinction" or "the main distinction"), the target becomes unambiguous. Questions asking "What's the difference between X and Y?" or "How does X contrast with Y?" work well when the source makes a specific comparison.
+
+### Example: Concrete Scientific Processes
+
+**Memory Prompt:**
+> Q. How does a reverse osmosis system purify water?
+> A. It uses high pressure to force water through a semipermeable membrane, leaving larger contaminants like salt and impurities behind.
+
+**Feedback:**
+This is a good "how" question because it targets a concrete, well-defined scientific process with an established mechanism. The specificity of "reverse osmosis system" makes the answer unambiguous.
+
+### Example: Terms of Art within Frameworks
+
+**Memory Prompt:**
+> Q. In the "Jobs to Be Done" framework, what is a "job story"?
+> A. A brief statement describing a user's situation, motivation, and desired outcome, formatted as "When ___, I want to ___, so I can ___."
+
+**Feedback:**
+This prompt is excellent for recall. It asks for the definition of a specific term of art ("job story") within a particular intellectual framework, ensuring the target answer is unique and well-defined. The framework attribution provides necessary context.
+
+### Example: Specific Causal "Why" Questions
+
+**Memory Prompt:**
+> Q. Why is the lack of a ballot-setting mechanism considered a weakness of quadratic voting?
+> A. It creates a potential source of concentrated power outside the voting process.
+
+**Feedback:**
+This "why" question works because it asks for a specific logical consequence or implication (why something is "a weakness"), not a philosophical justification. The question targets a particular causal relationship identified in the source.
+
+## Examples That Solicit Multiple Responses
+
+### Example: Subjective Qualifiers (Primary, Main, Most)
+
+**Memory Prompt:**
+> Q. In user experience design, what is the primary mechanism through which a 'discoverable' interface reduces cognitive load?
+> A. It allows users to infer functionality through visual cues and established conventions, rather than having to memorize commands or navigate complex menus.
+
+**Feedback:**
+This prompt is problematic because the term "**primary** mechanism" is subjective. A source might discuss several co-equal mechanisms, like clear information hierarchy or feedback loops. During review, recalling another valid mechanism would feel like a failed recall, creating ambiguity. The qualifiers "primary," "main," "most important," "key," "fundamental," and "essential" all create this same problem unless the source explicitly ranks or prioritizes.
+
+### Example: Vague Singular Targets (Fundamental, Key)
+
+**Memory Prompt:**
+> Q. According to organizational theory, what is a fundamental tension that arises when decentralizing decision-making in a large bureaucracy?
+> A. The conflict between granting local teams the autonomy to act quickly and maintaining strategic alignment with the organization's overarching goals.
+
+**Feedback:**
+This prompt is difficult to review because it isn't clear what the target of recall is. There could be many different answers to this question, and none of them can be uniquely identified as "**the** fundamental tension." Without specific attribution to an author or framework that identifies this particular tension as central, the prompt solicits multiple responses.
+
+### Example: Open-Ended "Why Important/Critical" Questions
+
+**Memory Prompt:**
+> Q. Why is the principle of "falsifiability" so critical to the scientific method?
+> A. Because it provides a clear criterion for distinguishing scientific theories from non-scientific ones; a theory is only scientific if it can, in principle, be proven false.
+
+**Feedback:**
+This "why is X **critical**" question is too open-ended for reliable recall. While the answer is correct, one could also validly answer that falsifiability encourages rigorous testing or prevents confirmation bias. The question invites philosophical justifications rather than targeting a specific causal explanation. To fix this, attribute to a specific philosopher of science ("According to Popper, why...") or ask for a concrete mechanism ("How does falsifiability distinguish scientific theories?").
+
+### Example: Indefinite Articles Implying Multiple Valid Answers
+
+**Memory Prompt:**
+> Q. In urban planning, what is an effective policy for mitigating the urban heat island effect?
+> A. Implementing a "cool pavement" program that uses reflective materials for roads and surfaces to reduce heat absorption.
+
+**Feedback:**
+This prompt is poor because it asks for "**an** effective policy" from a wide range of possible answers. Other equally valid responses could include increasing green spaces or mandating green roofs. The indefinite article explicitly signals that this is one answer among many. There is no way to uniquely recall this specific answer from the question alone. To fix: either ask for a specific enumerated list ("What are the three policies recommended by [Source]?") or attribute to make it specific ("According to [City]'s urban planning guide, what policy...?").
+
+### Example: Overly Broad Questions
+
+**Memory Prompt:**
+> Q. What is a consequence of social media on society?
+> A. The amplification of political polarization.
+
+**Feedback:**
+This question is far too broad. A source discussing social media would mention dozens of consequences, making the specific answer feel arbitrary and therefore difficult to memorize and recall reliably over the long term. The combination of an indefinite article ("**a** consequence") and an extremely broad scope ("social media on society") creates maximum ambiguity. To fix: narrow the scope and make it specific ("According to [Study], what was the measured effect of social media on teen mental health rates?").
+
+### Example: Vague "How" Without Concrete Process
+
+**Memory Prompt:**
+> Q. How does meditation improve mental health?
+> A. By reducing stress hormones and increasing activity in brain regions associated with emotional regulation.
+
+**Feedback:**
+While this answer is valid, the question is too broad. A source on meditation might discuss multiple mechanisms: neurological changes, behavioral patterns, cognitive restructuring, etc. Without specifying which mechanism or attributing to a particular study, the prompt solicits multiple responses. To fix: make it specific ("What neurological change does meditation produce according to [Study]?") or concrete ("How does mindfulness meditation affect cortisol levels?").
+
+## Output Format
+
+You must respond with a JSON like the following:
+
+```json
+{
+    "reason": "An explanation describing whether the memory prompt solicits multiple responses and why",
+    "solicits_multiple_responses": true/false
+}
+```
+
+where `solicits_multiple_responses` is a boolean value indicating whether the provided memory prompt solicits multiple responses.

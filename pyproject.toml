@@ -1,0 +1,38 @@
+[project]
+name = "memory-machines"
+version = "0.1.0"
+description = "Research code for evaluating and training LLM-based memory prompt generators for spaced repetition."
+readme = "README.md"
+requires-python = ">=3.13"
+license = { text = "Apache-2.0" }
+dependencies = [
+    "datasets>=4.4.1",
+    "openai>=2.12.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/laddermedia/memory-machines"
+Repository = "https://github.com/laddermedia/memory-machines"
+
+[project.optional-dependencies]
+viz = [
+    "matplotlib>=3.10.8",
+    "seaborn>=0.13.2",
+]
+prompt-optimization = [
+    "dspy-ai>=3.0.4",
+]
+
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
+[tool.uv]
+dev-dependencies = [
+    "matplotlib>=3.10.8",
+    "pandas>=2.3.3",
+    "pytest>=9.0.2",
+    "python-dotenv>=1.2.1",
+    "rich>=14.2.0",
+    "scikit-learn>=1.8.0",
+]

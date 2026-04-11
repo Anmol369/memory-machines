@@ -1,0 +1,139 @@
+The user uses Anki to manage and cultivate their curiosities.
+
+## Task
+You will be evaluating and selecting the best memory prompt for Anki. Given a highlight and an interpretation of the highlight, evaluate each prompt option against the two criteria (meaningful and reliably recallable). Choose the memory prompt that is most fitting given what the user highlighted.
+
+The user employs a spaced repetition system that presents prompts at expanding intervals—often months or years apart. An effective memory prompt must satisfy two criteria simultaneously:
+
+1. **Meaningful**: It captures details the user genuinely cares about long-term, not trivialities
+2. **Stable**: It can be consistently retrieved from memory even after months, when reviewed in isolation without access to the original context
+
+## High-Level Guidance for Pluckable Prompts
+
+- **Target the Core Insight, Not Surface Details or Decorative Examples.** A user highlight indicates interest in a specific idea, principle, or concept. A pluckable prompt brings the highlighted idea to life by making the essential detail the focus of recall—directly addressing what the user cared about in the source material. An unpluckable prompt often focuses on the wrong detail: testing trivialities or misjudging whether the trees or the forest matter more to the user.
+
+- **Ensure Atomicity and Clarity.** A prompt should test one single, well-defined concept. Unpluckable prompts are often compound questions that test two things simultaneously or use vague, imprecise language. A pluckable prompt uses precise terms from the source to target one piece of knowledge cleanly.
+
+- **Maintain Fidelity to the Highlighted Concept.** A memory prompt must be faithful to the idea the user found interesting. A highlight often serves as an anchor to a self-contained insight—be it a definition, a causal link, or a key distinction. A good prompt correctly identifies this complete, coherent unit of knowledge, even if the highlighted text only captures a part of it. The goal is to make the remembered concept whole and durable. Unpluckable prompts err in one of two ways: they either test a trivial fragment of the insight, leaving it decontextualized, or they introduce external information that goes beyond the core idea the user engaged with.
+
+- **Be Specific and Precise to Ensure Stability.** Prompts are reviewed in isolation, often months or years after creation. A pluckable prompt uses specific, concrete language that remains clear and unambiguous over time. Unpluckable prompts often fail stability in these ways: using generic or abstract framing that becomes vague when context fades ("in terms of X", "regarding Y"); making overgeneralizations or claims that might not hold up to scrutiny; or using wordy constructions that feel "distant and unfamiliar" on long review trajectories. Specificity acts as built-in context—a precise prompt remains self-explanatory even when the original reading context is forgotten.
+
+## Pluckable: On-target and well constructed
+The following are examples where the memory prompts do a good job entailing the main intention of the highlight in a way that is suitable for spaced-repetition.
+
+### Pluckable: Using Vivid Source Language as Recall Cue
+_What is the point of school? Is learning enough for wage returns?_ by Lauren Gilbert
+
+The user highlighted:
+
+> "For instance, in Rwanda, English is the official language of instruction across all grade levels. Yet just 38% of teachers have a working command of the language, and so Rwandan schools end up as a comedy of errors"
+
+**Context**: The author uses the example of Rwanda to illustrate a significant challenge in developing-country schools: the mismatch between the language of instruction and the language proficiency of both teachers and students. In Rwanda, English is mandated as the official language of instruction at all grade levels. However, only 38% of teachers actually possess a functional command of English. This results in a dysfunctional situation—described metaphorically as a "comedy of errors"—where teachers who do not speak English attempt to teach students who also do not speak English, using English-language textbooks. This scenario highlights one of the critical barriers to effective learning: when instruction is delivered in a language unfamiliar to both teacher and learner, neither language skills nor subject matter content are effectively conveyed. This undermines the fundamental goal of education—acquisition of knowledge and skills—and exemplifies how systemic structural issues can severely compromise educational outcomes in developing countries.
+
+**Memory Prompt**
+
+Q. How does limited teacher English proficiency affect Rwandan classrooms?
+A. Creates a 'comedy of errors' where teachers who don't speak English attempt to teach students who also don't speak English.
+
+**Feedback**
+
+Pluckable: Targets the core insight (language proficiency mismatch) and retains the vivid phrase "comedy of errors" as a memorable recall cue.
+
+### Pluckable: Capturing Implied Weakness, Not Just Definition
+_Quadratic Payments: A Primer_ by Vitalik Buterin
+
+The user highlighted:
+
+> "But one weakness of quadratic voting is that it doesn't come with a built-in mechanism for deciding what goes on the ballot in the first place"
+
+**Context**: The author points out a key limitation of quadratic voting: while it is an effective mechanism for aggregating preferences and balancing influence among voters during a decision-making process, it does not address how the options or issues to be voted on are initially selected or proposed. In other words, quadratic voting assumes that the set of choices already exists, but it offers no inherent system for determining which questions or proposals should be placed "on the ballot" for voters to decide upon. This gap is significant because the power to decide what issues are considered can heavily influence outcomes and potentially be manipulated. The author highlights this as a weakness that needs to be addressed, implying that the process of agenda-setting—deciding which decisions get to be voted on—requires additional mechanisms beyond quadratic voting itself.
+
+**Memory Prompt**
+
+Q. Why is the lack of a ballot-setting mechanism considered a weakness of quadratic voting?
+A. Because it lets whoever sets the agenda concentrate power by deciding what issues can be voted on, outside the quadratic voting process.
+
+**Feedback**
+
+Pluckable: Goes beyond the stated weakness to capture the implied consequence—that agenda-setting power can concentrate outside the voting process.
+
+## Unpluckable: Well targeted, Poor Construction
+The following are examples where the memory prompts are well targeted to the highlight (pointing to the correct idea), but the construction is poor.
+
+### Unpluckable: Inverted Cue/Target
+_Soaring with Titan's low gravity_ by NASA
+
+The user highlighted:
+
+> "On Titan, its gravity is so low that a human equipped with winged spacesuits could fly simply by flapping his or her arms"
+
+**Context**: The passage describes a fascinating consequence of Titan's low gravity: humans could achieve flight through arm-flapping in winged spacesuits. This is noteworthy because it illustrates how dramatically different physics operates on Titan compared to Earth, where human-powered flight through arm movements is impossible regardless of equipment. The highlight captures a specific, memorable physical phenomenon that makes Titan unique among celestial bodies in our solar system.
+
+**Memory Prompt**
+
+Q. On which celestial body in our solar system could a human with winged spacesuits likely fly by flapping their arms?
+A. Titan, Saturn's largest moon.
+
+**Feedback**
+
+Unpluckable: Puts the surprising detail (arm-flapping flight) in the question, making the answer a trivial label ("Titan"). Tests geography instead of the memorable physical consequence.
+
+**Improved Memory Prompt**
+
+Q. On Titan, its gravity is so low that humans could fly simply by…
+A. Flapping their arms (in winged spaced suits)
+
+### Unpluckable: Stripping Rhetorical Force
+_Response to "Using AI to Augment Human Intelligence" draft_ by Bret Victor
+
+The user highlighted:
+
+> "claiming that Sophocles can be not just located at, but generated from, one parameter set, and Tolstoy from another, does violence to the entire history of human endeavor?"
+
+**Context**: Victor is critiquing the notion that machine learning models can represent complex human creative works as points in a parameter space. He argues that reducing masterpieces like those of Sophocles or Tolstoy to generatable parameter sets fundamentally misrepresents the nature of human creativity—overlooking the rich cultural, historical, and experiential contexts that shape great works. This criticism is part of his broader concern that AI tools risk trivializing human creative acts by treating them as data points for interpolation rather than respecting them as deeply meaningful, contextually embedded achievements that should augment rather than replace human understanding.
+
+**Memory Prompt**
+
+Q. What does the critique argue is harmed by reducing literary figures to parameter sets?
+A. The entire history of human endeavor
+
+**Feedback**
+
+Unpluckable: Strips away the rhetorical force ("does violence to") and concrete examples (Sophocles, Tolstoy), reducing a passionate critique into a sterile factoid.
+
+**Improved Memory Prompt**
+
+Q. Bret Victor: "Can you see why, to some people, claiming that Sophocles can be not just located at, but generated from, one parameter set, and Tolstoy from another, ..."
+A. "does violence to the entire history of human endeavor?"
+
+### Unpluckable: Testing Surface Detail Over Core Insight
+_The Three Santas of Slovenia_ by Will Aspinall
+
+The user highlighted:
+
+> "At this point, Yugoslavia relied on the Soviet Union for economic assistance, so Tito decided to borrow from its culture, too. Since the 1930s, the Soviet Union had deployed a Communist Santa to hand out the gifts. That figure was called Ded Moroz in Russian, or Grandfather Frost. In Slovenia he was called Dedek Mraz."
+
+**Context**: The author explains that during the time when Yugoslavia, under Tito's leadership, depended economically on the Soviet Union, Tito also chose to incorporate elements of Soviet culture into Yugoslavia's own traditions. One such cultural import was the Soviet version of a gift-bringing figure present since the 1930s: a Communist Santa known as Ded Moroz ("Grandfather Frost"). In the Slovenian context, this figure was adapted and called Dedek Mraz. This decision reflects the political and cultural influence the Soviet Union had on Yugoslavia at that period, and specifically how a traditional seasonal figure was replaced with one that aligned with socialist ideals. In essence, the passage highlights how political alliances and ideological shifts influenced cultural and holiday practices in Yugoslavia/Slovenia.
+
+**Memory Prompt**
+
+Q. What was the Slovenian name for the Soviet figure Ded Moroz?
+A. Dedek Mraz
+
+**Feedback**
+
+Unpluckable: Tests a trivial translation detail instead of the political-cultural insight—Yugoslavia's economic dependence led to cultural borrowing.
+
+**Improved Memory Prompt**
+
+Q. What gift-giving figure did Yugoslavia borrow from Soviet culture in the post-war period?
+A. Ded Moroz (Grandfather Frost)
+
+### Response Format
+When you are ready, respond with the exact text:
+
+```
+Chosen: **card_id=[Card ID]**
+```
+
+Replace `[Card ID]` with the identifier of the best memory prompt option.

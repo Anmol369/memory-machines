@@ -1,0 +1,205 @@
+# Task
+
+Your task is to determine whether a memory prompt is **narrow**—that is, whether it narrowly focuses on the wrong aspect of the highlight, missing the core insight the user found interesting.
+
+This evaluates one aspect of being well-targeted (the "meaningful" criterion from pluckability): whether the memory prompt captures the **core insight** from the highlight, or whether it misses the point by narrowing its attention onto surface details, literal metaphor elements, scaffolding examples, or mechanisms while ignoring implications.
+
+The user employs a spaced repetition system that presents prompts at expanding intervals—often months or years apart. An effective memory prompt must satisfy two criteria simultaneously:
+
+1. **Meaningful**: It captures details the user genuinely cares about long-term, not trivialities
+2. **Stable**: It can be consistently retrieved from memory even after months, when reviewed in isolation without access to the original context
+
+## Definition
+
+You will be provided with:
+- A **user highlight** (text the user found particularly important)
+- The **highlight's intention** (the core idea or insight the highlight conveys—what the user wanted to remember)
+- A **memory prompt** to evaluate
+
+A memory prompt is **narrow** if it focuses on the wrong aspect of the highlight—testing surface details, example scaffolding, or literal metaphor elements while missing the conceptual core.
+
+A memory prompt is **not narrow** if it effectively captures the highlight's intention, even if it includes specific details. Precise details (like statistics or vivid phrasing) are valid when they make the idea more vivid, clarify its extent, or strengthen the core insight.
+
+### Common Ways Prompts Become Narrow
+
+1. **Testing literal metaphor details instead of abstract principles**
+   - Highlight uses garden metaphor for creative burnout
+   - Narrow: Tests what happens to soil when overplanted
+   - Good: Tests the principle of needing rest to sustain creativity
+
+2. **Testing mechanisms or enabling details instead of main claims**
+   - Highlight argues algorithms create cultural monoculture
+   - Narrow: Tests what technology enables recommendations
+   - Good: Tests the claim about homogenization of culture
+
+3. **Testing example trivia instead of underlying principles**
+   - Highlight illustrates supply/demand with coffee prices
+   - Narrow: Tests the initial price ($4)
+   - Good: Tests how supply and demand shocks affect prices
+
+4. **Testing surface statements stripped of specific application**
+   - Highlight applies "less is more" to product design
+   - Narrow: Tests the generic platitude without context
+   - Good: Tests the specific application to feature creep in design
+
+## Examples with Appropriate Depth
+
+### Example: Preserving Evocative Phrasing
+**Highlight:**
+> Entropy is not merely disorder; it is the universe's inexorable march towards thermal equilibrium, the final, silent state where all stories end.
+
+**Interpretation of the highlight within the context of the document:**
+The author defines the concept of entropy, arguing against the common simplification of it being mere "disorder." Instead, the passage frames it as the fundamental trajectory of the universe towards a final state of uniformity and inactivity, a concept crucial to the text's connection between physics and existential questions.
+
+**Memory Prompt:**
+> Cloze: Entropy is not merely disorder; it is the universe's {{c1::inexorable march towards thermal equilibrium, the final, silent state where all stories end}}.
+
+**Feedback:** The memory prompt correctly identifies that the power of this highlight lies in its specific, evocative wording. Using a cloze deletion preserves the author's precise definition, which is essential for capturing the concept's philosophical weight beyond its simple scientific meaning.
+
+---
+
+### Example: Testing Complete Classification Systems
+**Highlight:**
+> Geologists classify rocks into three main families based on their origin: Igneous rocks, formed from cooled magma or lava; Sedimentary rocks, created from the compressed fragments of other rocks or organic matter; and Metamorphic rocks, which are existing rocks transformed by intense heat and pressure.
+
+**Interpretation of the highlight within the context of the document:**
+The author introduces the foundational classification system for rocks used in geology. This breakdown into three types based on formation (igneous, sedimentary, metamorphic) is presented as the essential first step for understanding the rock cycle and Earth's history.
+
+**Memory Prompt:**
+> Q. What are the three main families of rocks and how are they formed?
+> A. Igneous (from cooled magma), Sedimentary (from compressed fragments), and Metamorphic (from heat and pressure).
+
+**Feedback:** The memory prompt effectively tests the entire classification system presented in the highlight. It requires recalling not just the names of the three rock types but also their distinct formation processes, which is the core conceptual information.
+
+---
+
+### Example: Synthesizing Multi-faceted Arguments
+**Highlight:**
+> Replacing a city's lead service lines is not a simple plumbing job. It requires extensive public records research to identify the lines, coordination with thousands of individual homeowners, and complex street-level excavation, often triggering environmental reviews.
+
+**Interpretation of the highlight within the context of the document:**
+The author details the immense logistical challenges involved in replacing a city's lead water pipes. The passage breaks down the multi-faceted process to demonstrate that it is a massive, complex infrastructure project, not a simple repair, which explains the high cost and long timelines discussed elsewhere in the article.
+
+**Memory Prompt:**
+> Q. Why is replacing a city's lead service lines such a difficult undertaking?
+> A. It requires extensive records research, homeowner coordination, complex excavation, and environmental reviews.
+
+**Feedback:** The memory prompt successfully captures the core argument by asking for the synthesis of the various challenges listed in the highlight. It tests the user's understanding of the multifaceted nature of the problem, which is the main point.
+
+---
+
+### Example: Capturing Complete Definitions
+**Highlight:**
+> convert it into a pitch-class set, which is simply a list of the unique notes used in the phrase, ignoring their octave or order of appearance.
+
+**Interpretation of the highlight within the context of the document:**
+The author introduces a foundational technique in music theory: representing a melody as a "pitch-class set." This process of abstracting a melody into its unique notes—disregarding octave and order—is explained as a crucial first step for standardized comparison and deeper harmonic analysis.
+
+**Memory Prompt:**
+> Q. In music theory, what is a pitch-class set?
+> A. A list of the unique notes in a musical phrase, ignoring their octave or order.
+
+**Feedback:** This memory prompt effectively targets the complete definition presented in the highlight. It correctly tests the three key components of the concept: that it's a list of unique notes, and that it specifically ignores both octave and order.
+
+---
+
+### Example: Unpacking Key Terms Beyond Surface Quotes
+**Highlight:**
+> We argue that good user interface design must not only be functional, but also "legible."
+
+**Interpretation of the highlight within the context of the document:**
+The highlighted passage presents the paper's central thesis. It introduces the concept of "legibility" in user interface design, arguing that a UI's underlying logic and the consequences of actions must be transparent and predictable to the user, a quality the author deems as important as basic functionality.
+
+**Memory Prompt:**
+> Q. What defines a "legible" user interface?
+> A. A design where the system's structure and the consequences of actions are clear, predictable, and intuitive to the user.
+
+**Feedback:** The memory prompt rightly focuses on unpacking the meaning of the key term "legible" introduced in the highlight. It goes beyond the surface quote to test the deeper definition that the author provides, which is the conceptual core of the argument.
+
+---
+
+### Example: Recalling Specific Enumerations
+**Highlight:**
+> three layers
+
+**Interpretation of the highlight within the context of the document:**
+The highlighted phrase "three layers" refers to the core components of a compelling story according to the author's narrative framework. These layers—Plot (external events), Character Arc (internal change), and Theme (underlying idea)—are presented as the essential, intertwined elements that expert storytellers use to create meaningful narratives.
+
+**Memory Prompt:**
+> Q. What are the three layers of a compelling story according to the author's framework?
+> A. Plot, Character Arc, and Theme.
+
+**Feedback:** The highlight points to a specific enumeration, and the memory prompt correctly prompts for the components of that list. It directly tests the user's recall of the specific framework being introduced, which is the sole purpose of the highlight.
+
+## Examples That Are Narrow
+
+### Example: Literal Metaphor Details vs. Abstract Principles
+**Highlight:**
+> A creative project is like a garden; you cannot just plant seeds and expect a harvest. The soil must be tended, weeds must be pulled, and some areas must be left fallow for a season to regenerate their nutrients. Constantly planting in the same spot without rest depletes the soil, yielding progressively weaker crops until nothing will grow at all.
+
+**Interpretation of the highlight within the context of the document:**
+The author employs a garden metaphor to argue that creativity requires periods of rest to be sustainable. The passage posits that continuous work without breaks ("constantly planting") leads to burnout ("depletes the soil"), making the case for a cyclical rhythm of effort and recovery in creative endeavors.
+
+**Memory Prompt:**
+> Q. In the garden metaphor for creativity, what happens if you keep planting in the same spot?
+> A. The soil becomes depleted and crops get weaker.
+
+**Feedback:** The prompt narrows its focus onto literal details of the metaphor ("depleted soil") instead of the abstract principle it represents (creative burnout and the need for rest). Metaphors are vehicles for understanding concepts, not objects of study themselves—the point is what they illuminate, not their internal mechanics.
+
+---
+
+### Example: Surface Statement vs. Specific Application
+**Highlight:**
+> It is a common temptation to add more features, believing that more options equate to more power; but often, the most elegant solution is found by subtracting, not adding.
+
+**Interpretation of the highlight within the context of the document:**
+The author applies the "less is more" principle to user interface design, arguing against the tendency to add excessive features ("feature creep"). The passage claims that true usability and elegance are achieved by intentionally removing non-essential elements to improve clarity, a core tenet of the minimalist design philosophy advocated in the text.
+
+**Memory Prompt:**
+> Q. Why is adding more features not always better?
+> A. Because sometimes the best solution is achieved through subtraction and simplification.
+
+**Feedback:** The prompt narrows onto the surface platitude ("less is more") while stripping away the specific application to product design and feature creep that gives the highlight its power. Testing a universally understood principle divorced from its concrete context misses what made this worth highlighting—the specific application to design decisions.
+
+---
+
+### Example: Mechanism vs. Main Claim
+**Highlight:**
+> These systems do more than just suggest songs; they actively construct a new kind of global monoculture.
+
+**Interpretation of the highlight within the context of the document:**
+The author makes the provocative claim that music recommendation algorithms are not neutral tools but are powerful agents of cultural change. The phrase "global monoculture" is used to argue that these systems homogenize taste on a massive scale, eroding cultural diversity by concentrating listenership on a narrow band of algorithmically-favored content.
+
+**Memory Prompt:**
+> Q. What technology is used by streaming services to suggest songs?
+> A. Recommendation algorithms.
+
+**Feedback:** The prompt narrows onto the enabling technology ("recommendation algorithms")—mere scaffolding for the argument—while completely ignoring the author's provocative central claim about their cultural consequence ("global monoculture"). It confuses the mechanism with the insight.
+
+---
+
+### Example: Example Trivia vs. Underlying Principle
+**Highlight:**
+> First, when a frost in Brazil damaged the coffee crop, the supply of beans fell, causing the price of a latte at 'The Daily Grind' to rise from $4 to $5. Second, when a new study praised coffee's health benefits, demand increased, and the cafe was able to raise its price again to $6 without losing customers.
+
+**Interpretation of the highlight within the context of the document:**
+The author uses a simple coffee shop scenario to provide a concrete illustration of the economic principles of supply and demand. The two events—a supply shock (frost) and a demand shock (health study)—demonstrate how external factors directly influence consumer prices, making abstract economic theory tangible.
+
+**Memory Prompt:**
+> Q. What was the initial price of a latte at 'The Daily Grind' before the frost?
+> A. $4.
+
+**Feedback:** The prompt narrows onto trivial numerical scaffolding ($4) from an illustrative example, completely missing the economic principles (supply and demand shocks) that the example was designed to explain. Examples are teaching tools, not the lesson itself—this tests recall of the story while ignoring what the story taught.
+
+## Output Format
+
+You must respond with a JSON like the following:
+
+```json
+{
+    "reason": "A concise explanation for why the memory prompt is or is not narrow, referencing the highlight's intention.",
+    "narrow": true/false
+}
+```
+
+where `narrow` is a boolean value indicating whether the provided memory prompt is narrow.

@@ -1,0 +1,43 @@
+command:
+  - ${env}
+  - python
+  - -m
+  - memory_machines.training.sft_tiering.train
+  - ${args}
+method: grid
+project: memory-machines-sft-tiering
+
+parameters:
+  # Fixed paths
+  data_dir:
+    value: memory_machines/training/data/sft_tiering
+
+  # Default model
+  model_name:
+    value: OpenPipe/Qwen3-14B-Instruct
+
+  lora_r:
+    values: [1, 8, 32]
+
+  learning_rate:
+    values: [5e-6, 2e-5, 5e-5]
+
+  batch_size:
+    values: [4, 8]
+
+  epochs:
+    values: [1, 2, 3]
+
+  # Fixed config
+  max_length:
+    value: 4096
+
+  seed:
+    value: 42
+
+  wandb_project:
+    value: memory-machines-sft-tiering
+
+metric:
+  name: eval_loss
+  goal: minimize

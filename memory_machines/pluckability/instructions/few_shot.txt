@@ -1,0 +1,293 @@
+Your task is to identify whether the generated memory prompt is "pluckable": it is well-suited for long-term retention in the user's memory system based on their highlighted text and interpretation. A high-quality, pluckable memory prompt isolates a durable, meaningful insight in a way that is clear, precise, stable, and directly tied to what the user likely found interesting in the source material (as indicated by their highlighted text).
+
+The user employs a spaced repetition system that presents prompts at expanding intervals—often months or years apart. An effective memory prompt must satisfy two criteria simultaneously:
+
+1. **Meaningful**: It captures details the user genuinely cares about long-term, not trivialities
+2. **Stable**: It can be consistently retrieved from memory even after months, when reviewed in isolation without access to the original context
+
+Evaluate the provided `Memory Prompt` against the highlighted text and its interpretation. Determine if it is pluckable and provide a brief justification for your decision.
+
+## High-Level Guidance for Pluckable Prompts
+
+- **Target the Core Insight, Not Surface Details or Decorative Examples.** A user highlight indicates interest in a specific idea, principle, or concept. A pluckable prompt brings the highlighted idea to life by making the essential detail the focus of recall—directly addressing what the user cared about in the source material. An unpluckable prompt often focuses on the wrong detail: testing trivialities or misjudging whether the trees or the forest matter more to the user.
+
+- **Ensure Atomicity and Clarity.** A prompt should test one single, well-defined concept. Unpluckable prompts are often compound questions that test two things simultaneously or use vague, imprecise language. A pluckable prompt uses precise terms from the source to target one piece of knowledge cleanly.
+
+- **Maintain Fidelity to the Highlighted Concept.** A memory prompt must be faithful to the idea the user found interesting. A highlight often serves as an anchor to a self-contained insight—be it a definition, a causal link, or a key distinction. A good prompt correctly identifies this complete, coherent unit of knowledge, even if the highlighted text only captures a part of it. The goal is to make the remembered concept whole and durable. Unpluckable prompts err in one of two ways: they either test a trivial fragment of the insight, leaving it decontextualized, or they introduce external information that goes beyond the core idea the user engaged with.
+
+- **Be Specific and Precise to Ensure Stability.** Prompts are reviewed in isolation, often months or years after creation. A pluckable prompt uses specific, concrete language that remains clear and unambiguous over time. Unpluckable prompts often fail stability in these ways: using generic or abstract framing that becomes vague when context fades ("in terms of X", "regarding Y"); making overgeneralizations or claims that might not hold up to scrutiny; or using wordy constructions that feel "distant and unfamiliar" on long review trajectories. Specificity acts as built-in context—a precise prompt remains self-explanatory even when the original reading context is forgotten.
+
+## Pluckable: On-target and well constructed
+The following are examples where the memory prompts do a good job entailing the main intention of the highlight in a way that is suitable for spaced-repetition.
+
+### Pluckable: Using Vivid Source Language as Recall Cue
+_What is the point of school? Is learning enough for wage returns?_ by Lauren Gilbert
+
+The user highlighted:
+
+
+> "For instance, in Rwanda, English is the official language of instruction across all grade levels. Yet just 38% of teachers have a working command of the language, and so Rwandan schools end up as a comedy of errors"
+
+**Context**: The author uses the example of Rwanda to illustrate a significant challenge in developing-country schools: the mismatch between the language of instruction and the language proficiency of both teachers and students. In Rwanda, English is mandated as the official language of instruction at all grade levels. However, only 38% of teachers actually possess a functional command of English. This results in a dysfunctional situation—described metaphorically as a "comedy of errors"—where teachers who do not speak English attempt to teach students who also do not speak English, using English-language textbooks. This scenario highlights one of the critical barriers to effective learning: when instruction is delivered in a language unfamiliar to both teacher and learner, neither language skills nor subject matter content are effectively conveyed. This undermines the fundamental goal of education—acquisition of knowledge and skills—and exemplifies how systemic structural issues can severely compromise educational outcomes in developing countries.
+
+**Memory Prompt**
+
+Q. How does limited teacher English proficiency affect Rwandan classrooms?
+A. Creates a 'comedy of errors' where teachers who don't speak English attempt to teach students who also don't speak English.
+
+**Feedback**
+
+Pluckable: Targets the core insight (language proficiency mismatch) and retains the vivid phrase "comedy of errors" as a memorable recall cue.
+
+
+### Pluckable: Capturing Implied Weakness, Not Just Definition
+_Quadratic Payments: A Primer_ by Vitalik Buterin
+
+
+The user highlighted:
+
+> "But one weakness of quadratic voting is that it doesn't come with a built-in mechanism for deciding what goes on the ballot in the first place"
+
+
+**Context**: The author points out a key limitation of quadratic voting: while it is an effective mechanism for aggregating preferences and balancing influence among voters during a decision-making process, it does not address how the options or issues to be voted on are initially selected or proposed. In other words, quadratic voting assumes that the set of choices already exists, but it offers no inherent system for determining which questions or proposals should be placed "on the ballot" for voters to decide upon. This gap is significant because the power to decide what issues are considered can heavily influence outcomes and potentially be manipulated. The author highlights this as a weakness that needs to be addressed, implying that the process of agenda-setting—deciding which decisions get to be voted on—requires additional mechanisms beyond quadratic voting itself.
+
+**Memory Prompt**
+
+Q. Why is the lack of a ballot-setting mechanism considered a weakness of quadratic voting?
+A. Because it lets whoever sets the agenda concentrate power by deciding what issues can be voted on, outside the quadratic voting process.
+
+**Feedback**
+
+Pluckable: Goes beyond the stated weakness to capture the implied consequence—that agenda-setting power can concentrate outside the voting process.
+
+### Pluckable: Contrasting Two Levels of a System
+_The Log: What every software engineer should know about real-time data's unifying abstraction_ by Jay Kreps
+
+The user highlighted:
+
+> "Each partition is a totally ordered log, but there is no global ordering between partitions (other than perhaps some wall-clock time you might include in your messages)"
+
+**Context**: In discussing Kafka's distributed log architecture, the author explains that partitioning enables scalability but comes with an ordering trade-off. While each partition maintains strict sequential ordering of its records, Kafka enforces no global order across different partitions. Any cross-partition ordering would need to rely on external mechanisms like wall-clock timestamps embedded in messages. This design allows parallel operations without coordination overhead, which the author notes is typically acceptable since most distributed systems involve independent processes operating on separate partitions.
+
+
+**Memory Prompt**
+
+Q. In a partitioned distributed log, how do ordering guarantees differ within a partition compared to across partitions?
+A. Within a partition, total ordering is guaranteed. Across partitions, there is no global ordering guarantee, except for possible loose ordering based on wall-clock timestamps.
+
+**Feedback**
+
+Pluckable: Question uses a clear comparative structure ("within vs. across") to test the architectural distinction between two levels of ordering guarantees.
+
+### Pluckable: Contextual Attribution with Contrastive Answer
+_The Paradox of Horror_ by Berys Gaut
+
+The user highlighted:
+
+> "aren't painful in the way that stepping on a thumb-tack is. Instead, he says, 'In describing an emotion as "painful" or "negative" or "unpleasant", Isuggest, we are in fact saying something about the situations in response towhich we typically experience those emotion"
+
+**Context**: The highlighted passage distinguishes between emotions being inherently painful versus being responses to painful situations. Alex Neill argues that calling emotions like fear or sorrow "painful" or "unpleasant" doesn't mean they feel bad like physical pain (stepping on a thumb-tack), but rather describes the undesirable situations that trigger them. This distinction challenges the assumption that negative emotions must inherently feel bad, helping explain why people can enjoy horror films or tragedies—the emotions evaluate negatively-charged situations but aren't necessarily unpleasant to experience themselves. This supports an evaluative theory where emotions are cognitive judgments about situations, with their "negativity" residing in what they're about rather than in how they feel.
+
+**Memory Prompt**
+
+Q. According to Neill's theory, when we describe emotions as 'painful' or 'negative', what are we actually describing?
+A. Situations that trigger those emotions, not the emotions themselves.
+
+**Feedback**
+
+Pluckable: Contextual attribution ("According to Neill's theory") provides scaffolding, and the contrastive answer structure ("situations... not emotions") makes the distinction memorable.
+
+
+## Unpluckable: Well targeted, Poor Construction
+The following are examples where the memory prompts are well targeted to the highlight (pointing to the correct idea), but the construction is poor.
+
+### Unpluckable: Missing Contrasting Context
+
+_Quadratic Payments: A Primer_ by Vitalik Buterin
+
+The user highlighted:
+
+> "how much influence you "buy" is proportional to how much you care"
+
+**Context**: The author is explaining the core mechanism of quadratic voting as an alternative to traditional voting systems. Unlike "one person, one vote" (where preference intensity is ignored) or simple markets (where wealth determines outcomes), quadratic voting allows individuals to purchase additional votes at quadratically increasing costs—the nth vote costs n dollars. This pricing structure means those with stronger preferences can acquire more influence, but the escalating marginal cost prevents wealthy actors from dominating decisions. The result is that influence naturally aligns with how intensely someone cares about the outcome, balancing fairness and efficiency in collective decision-making.
+
+**Memory Prompt**
+
+Q. In voting systems, what is the key principle of proportional influence?
+A. The amount of influence a voter can exercise is proportional to how much they care about the outcome.
+
+**Feedback**
+
+Unpluckable: Too general ("In voting systems...") and restates the highlight without providing the contrast to one-person-one-vote that gives it meaning.
+
+**Improved Memory Prompt**
+
+Q. What is the main advantage of proportional influence over one-person-one-vote systems?
+A. It reflects the intensity of voters' preferences instead of treating all votes as equally weighted regardless of their stake.
+
+
+### Unpluckable: Asking Purpose Instead of Definition
+_Survey of Embeddings in Machine Learning Systems_ by Vicki Boykis
+
+The user highlighted:
+
+> "The way we can build toward this representation is to start with a structure known as a bag of words, or simplythe frequency of appearance of text in a given document (in our case, each flit is a document.)"
+
+**Context**: The author is explaining how to transform text data into numerical representations for machine learning. In the example social media app, each piece of content (a "flit") is treated as a document. The bag-of-words approach counts word frequencies within each document, creating vectors where each document is represented by the frequency of words it contains. This foundational technique—which ignores word order but preserves word counts—enables numerical text analysis and serves as a stepping stone to more advanced representations like embeddings discussed later in the text.
+
+
+**Memory Prompt**
+
+Q. What is the primary purpose of counting word frequencies in a bag of words approach?
+A. To convert text into a numerical format that can be used as input for further analysis and embedding methods
+
+**Feedback**
+
+Unpluckable: Asks about purpose ("primary purpose") instead of directly testing the definitional mechanism (word frequency counts, ignoring order).
+
+**Improved Memory Prompt**
+
+Q. What is the bag of words (BoW) representation in document processing?
+A. A text representation that counts how often each word appears in a document while ignoring word order.
+
+
+### Unpluckable: Broad Question, Incomplete Answer
+_The Five Things President Trump Should Do on Day One_ by Santi Ruiz
+
+The user highlighted:
+
+> "Firing an executive branch civil servant requires extensive documentation. Additionally, many employees are unionized, and all can appeal their firings internally. Partially as a result, the government cans bad employees about four times less often than the private sector does. It takes a lot more than saying "you're fired" to get people out the door."
+
+**Context**:
+
+The highlighted passage explains the difficulty in firing poor-performing employees within the federal civil service. The author points out that unlike in the private sector, dismissing a civil servant involves a complicated, documentation-heavy process. Many federal employees are unionized, which adds additional procedural protections, and every fired civil servant has the right to internally appeal the decision. Consequently, the government removes underperforming workers at a much lower rate (about a quarter as often) as the private sector does. The implicit claim is that civil service job protections, while intended to ensure fairness and due process, can unintentionally make it very challenging to remove ineffective personnel, which can hinder government efficiency and reform efforts.
+
+
+**Memory Prompt**
+
+Q. What bureaucratic process is required to fire an executive branch civil servant?
+A. Extensive documentation is needed.
+
+**Feedback**
+
+Unpluckable: Broad question invites multiple correct answers (documentation, unions, appeals), but the answer only provides one, making it incomplete.
+
+**Improved Memory Prompt**
+
+Q. Why does it take more than simply saying "you're fired" to dismiss a civil servant in the executive branch?
+A. Due to the need for extensive documentation, union protections, and the right to appeal firings internally.
+
+## Unpluckable: Off-target
+The following are examples where the memory prompt are well constructed, but are off-target because they do not represent the main intention of the highlight.
+
+
+### Unpluckable: Testing the Label Instead of the Surprise
+_Greening Mars: First steps_ by Edwin Kite and Robin Wordsworth
+
+The user highlighted:
+
+> "gravity is so low that humans could fly simply by flapping their arms, provided they're equipped with winged space suits"
+
+**Context**: The authors are discussing the physical conditions on Titan, Saturn's largest moon, and the possibilities for human activity there. This observation about human-powered flight illustrates Titan's extremely low gravity (about 14% of Earth's) combined with its dense atmosphere, which would fundamentally change human capabilities and experiences. This detail appears within a broader examination of celestial bodies where human presence might be viable.
+
+
+**Memory Prompt**
+
+Q. On which celestial body in our solar system could a human with winged spacesuits likely fly by flapping their arms?
+A. Titan, Saturn's largest moon.
+
+**Feedback**
+
+Unpluckable: Puts the surprising detail (arm-flapping flight) in the question, making the answer a trivial label ("Titan"). Tests geography instead of the memorable physical consequence.
+
+
+**Improved Memory Prompt**
+
+Q. On Titan, its gravity is so low that humans could fly simply by…
+A. Flapping their arms (in winged spaced suits)
+
+### Unpluckable: Stripping Rhetorical Force
+_Response to "Using AI to Augment Human Intelligence" draft_ by Bret Victor
+
+The user highlighted:
+
+> "claiming that Sophocles can be not just located at, but generated from, one parameter set, and Tolstoy from another, does violence to the entire history of human endeavor?"
+
+**Context**: Victor is critiquing the notion that machine learning models can represent complex human creative works as points in a parameter space. He argues that reducing masterpieces like those of Sophocles or Tolstoy to generatable parameter sets fundamentally misrepresents the nature of human creativity—overlooking the rich cultural, historical, and experiential contexts that shape great works. This criticism is part of his broader concern that AI tools risk trivializing human creative acts by treating them as data points for interpolation rather than respecting them as deeply meaningful, contextually embedded achievements that should augment rather than replace human understanding.
+
+
+**Memory Prompt**
+
+Q. What does the critique argue is harmed by reducing literary figures to parameter sets?
+A. The entire history of human endeavor
+
+**Feedback**
+
+Unpluckable: Strips away the rhetorical force ("does violence to") and concrete examples (Sophocles, Tolstoy), reducing a passionate critique into a sterile factoid.
+
+**Improved Memory Prompt**
+
+Q. Bret Victor: "Can you see why, to some people, claiming that Sophocles can be not just located at, but generated from, one parameter set, and Tolstoy from another, ..."
+A. "does violence to the entire history of human endeavor?"
+
+
+### Unpluckable: Yes/No Question Trivializes Concept
+_Atoms in Motion (Chapter 1 of The Feynman Lectures on Physics)_ by Richard P. Feynman
+
+The user highlighted:
+
+> "There is no natural way to group them as "molecules of salt.""
+
+**Context**:
+
+Feynman is explaining the atomic structure of common salt (sodium chloride) and contrasting it with water. Unlike water molecules, which exist as discrete units of two hydrogen atoms bonded to one oxygen atom, salt consists of sodium and chloride ions arranged in a continuous crystal lattice held together by electrical attraction. There are no naturally bounded units that constitute a "salt molecule"—only a repeating ionic structure. This distinction is significant because it shows that the concept of a molecule doesn't universally apply to all substances, and this structural difference affects physical and chemical behavior, such as how salt dissolves by dissociating into individual ions rather than breaking apart molecular units.
+
+
+**Memory Prompt**
+
+Q. Is there a natural way to group sodium chloride ions as 'molecules of salt'?
+A. No, there is no natural way to group them as 'molecules of salt'.
+
+**Feedback**
+
+Unpluckable: Yes/No format allows correct recall without understanding the underlying principle (ionic lattice vs. discrete molecular pairs).
+
+**Improved Memory Prompt**
+
+Q. How does salt illustrate how the concept of a "molecule" is approximate and doesn't always apply?
+A. A crystal of salt contains an arrangement of ions in a pattern, but they're not grouped into separate Na + Cl pairs.
+
+
+### Unpluckable: Testing Surface Detail Over Core Insight
+_The Three Santas of Slovenia_ by Will Aspinall
+
+The user highlighted:
+
+> "At this point, Yugoslavia relied on the Soviet Union for economic assistance, so Tito decided to borrow from its culture, too. Since the 1930s, the Soviet Union had deployed a Communist Santa to hand out the gifts. That figure was called Ded Moroz in Russian, or Grandfather Frost. In Slovenia he was called Dedek Mraz."
+
+**Context**:
+
+The author explains that during the time when Yugoslavia, under Tito's leadership, depended economically on the Soviet Union, Tito also chose to incorporate elements of Soviet culture into Yugoslavia's own traditions. One such cultural import was the Soviet version of a gift-bringing figure present since the 1930s: a Communist Santa known as Ded Moroz ("Grandfather Frost"). In the Slovenian context, this figure was adapted and called Dedek Mraz. This decision reflects the political and cultural influence the Soviet Union had on Yugoslavia at that period, and specifically how a traditional seasonal figure was replaced with one that aligned with socialist ideals. In essence, the passage highlights how political alliances and ideological shifts influenced cultural and holiday practices in Yugoslavia/Slovenia.
+
+
+**Memory Prompt**
+
+Q. What was the Slovenian name for the Soviet figure Ded Moroz?
+A. Dedek Mraz
+
+**Feedback**
+
+Unpluckable: Tests a trivial translation detail instead of the political-cultural insight—Yugoslavia's economic dependence led to cultural borrowing.
+
+**Improved Memory Prompt**
+
+Q. What gift-giving figure did Yugoslavia borrow from Soviet culture in the post-war period?
+A. Ded Moroz (Grandfather Frost)
+
+# Output Format
+
+Your response must be a single JSON object with two keys: `reason` and `pluckable`.
+
+```json
+{"reason": "Provide a concise justification for your decision, referencing the principles above.", "pluckable": true/false}
+```

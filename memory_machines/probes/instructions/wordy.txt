@@ -1,0 +1,239 @@
+# Task
+
+Your task is to identify whether a memory prompt is **wordy**—that is, whether it uses unnecessarily complex phrasing, formal constructions, or verbose language that makes the prompt harder to recall and answer months later.
+
+This evaluates one aspect of **stability**: wordy prompts become "distant and unfamiliar on long review trajectories." After months without context, complex phrasing is harder to parse than direct, natural language. Good prompts use clear, straightforward language that asks exactly what you want to remember and answers in the most direct way possible.
+
+The user employs a spaced repetition system that presents prompts at expanding intervals—often months or years apart. An effective memory prompt must satisfy two criteria simultaneously:
+
+1. **Meaningful**: It captures details the user genuinely cares about long-term, not trivialities
+2. **Stable**: It can be consistently retrieved from memory even after months, when reviewed in isolation without access to the original context
+
+## Definition
+
+A memory prompt is **wordy** when it uses unnecessarily complex phrasing or verbose constructions that obscure clarity. This is primarily about **how something is said**, not what is being asked or at what level.
+
+**Wordiness is structural inefficiency**, not the same as:
+- **Asking shallow questions** (wrong cognitive level—covered by "shallow" task)
+- **Asking multiple things** (compound questions—covered by "solicits multiple responses" task)
+- **Using necessary technical terminology** (precision terms that capture exact concepts)
+
+## Common Wordiness Patterns to Avoid
+
+### 1. Unnecessary Formal Qualifiers
+Adding decorative words that don't add meaning:
+- ✗ "fundamental distinction," "pivotal agreement," "ultimately de-escalated"
+- ✓ "distinction," "agreement," "resolved"
+
+### 2. Passive and Indirect Constructions
+Using passive voice or indirect phrasing when active is clearer:
+- ✗ "is designed to help individuals reason about"
+- ✓ "helps people think about"
+
+### 3. Unnecessarily Formal Vocabulary
+Using fancy words when simple ones work:
+- ✗ "delineates" → ✓ "distinguishes" or "different from"
+- ✗ "consists of problems solvable" → ✓ "problems you can solve"
+
+### 4. Redundant Phrasing
+Saying the same thing twice or adding unnecessary scaffolding:
+- ✗ "What is X, and what is its primary purpose?" (asks twice)
+- ✓ "What is X?" (asks once)
+
+### 5. Over-Explaining the Context
+Including unnecessary background when attribution is enough:
+- ✗ "the philosophical thought experiment, famously proposed by John Rawls, that is designed to help..."
+- ✓ "John Rawls' Veil of Ignorance"
+
+## When Technical Language Is Appropriate
+
+Technical terminology is NOT wordiness when it provides necessary precision:
+
+**✓ GOOD - Necessary technical terms:**
+- "Reciprocal determinism" (Bandura's specific model)
+- "Normative vs. informational influence" (distinct concepts in psychology)
+- "Gradients vanish or explode" (precise description in neural networks)
+- "Identity-protective cognition" (specific psychological mechanism)
+
+**✗ WORDY - Unnecessary formality:**
+- "Delineates the complexity class" when "distinguishes" or "different" works
+- "Ultimately de-escalated" when "resolved" works
+- "Pivotal agreement" when "agreement" works
+
+**Key distinction:** If the technical term is the precise concept being tested or is standard in the field, it's not wordy. If you're using formal language to sound sophisticated when simpler words convey the same meaning, it's wordy.
+
+## Examples of Concise Prompts
+
+The following are good examples of direct, efficient memory prompts:
+
+> Q. According to Bandura's model of reciprocal determinism, what three forces continually shape human behavior?
+> A. Personal cognition, environmental context, and enacted behavior interact dynamically — each both cause and consequence of the others.
+
+**Why this works:** "Reciprocal determinism" is the precise technical term being tested. The answer is direct and clear despite being conceptually dense.
+
+---
+
+> Q. What distinguishes 'normative' from 'informational' social influence in Asch's conformity studies?
+> A. Normative influence stems from desire for approval; informational influence arises from assuming others know better.
+
+**Why this works:** Technical terms ("normative," "informational") are the exact concepts being contrasted. The explanation is direct and parallel in structure.
+
+---
+
+> Q. Why do artificial recurrent networks struggle to retain information over long sequences?
+> A. Gradients vanish or explode through repeated nonlinearities, erasing distant dependencies.
+
+**Why this works:** Technical language ("gradients vanish," "nonlinearities") is the standard terminology for this neural network problem. No simpler phrasing would be as precise.
+
+---
+
+> Q. Why does it take more than simply exposing people to diverse viewpoints to reduce polarization?
+> A. Because identity-protective cognition filters information through group loyalty, reinforcing rather than weakening prior beliefs.
+
+**Why this works:** "Identity-protective cognition" is the specific psychological mechanism being explained. The phrasing is direct and causal.
+
+## Examples of Wordy Prompts
+
+### Example 1: Unnecessary Formal Language
+
+**Original (Wordy):**
+> Q. In computational complexity theory, what is the fundamental distinction that delineates the complexity class P from the class NP?
+> A. The class P consists of problems solvable in polynomial time, whereas NP includes problems whose solutions can be verified in polynomial time, with the open question being whether P equals NP.
+
+**Issues:**
+- "fundamental distinction that delineates" → unnecessarily formal
+- "consists of problems solvable" → verbose passive construction
+- Over-explains by including "open question" when not asked
+
+**Improved:**
+> Q. How is the "difficulty" of an NP problem different from a P problem?
+> A. An NP problem's solution is fast to verify, while a P problem is fast to solve.
+
+**Why improvement works:** Uses natural language ("different," "fast") and active constructions. Makes the abstract concrete.
+
+---
+
+### Example 2: Excessive Context and Formal Qualifiers
+
+**Original (Wordy):**
+> Q. What was the pivotal agreement involving the removal of missiles from Turkey and Cuba that ultimately de-escalated the 1962 Cuban Missile Crisis between the United States and the Soviet Union?
+> A. A secret agreement for the US to remove Jupiter missiles from Turkey in exchange for the Soviets removing their missiles from Cuba.
+
+**Issues:**
+- "pivotal agreement involving" → "agreement" is sufficient
+- "ultimately de-escalated" → "resolved" is clearer
+- Includes date and countries unnecessarily when they're not the recall target
+
+**Improved:**
+> Q. How was the Cuban Missile Crisis secretly resolved?
+> A. Through a diplomatic trade where the US agreed to remove missiles from Turkey in exchange for the Soviets removing missiles from Cuba.
+
+**Why improvement works:** Removes decorative qualifiers, makes the question direct. The answer is also more active ("through a trade" vs. passive construction).
+
+**Note:** The improvement also changes the question type slightly (from "what" to "how"), making it more focused on mechanism. This addresses both wordiness and targeting.
+
+---
+
+### Example 3: Over-Explaining Attribution
+
+**Original (Wordy):**
+> Q. What is the philosophical thought experiment, famously proposed by John Rawls, that is designed to help individuals reason about principles of justice from an impartial perspective?
+> A. The Veil of Ignorance
+
+**Issues:**
+- "philosophical thought experiment, famously proposed by" → verbose attribution
+- "is designed to help individuals reason about" → passive, indirect
+- Answer is too brief for the elaborate question (atomicity issue)
+
+**Improved:**
+> Q. Why did John Rawls argue for using a "Veil of Ignorance"?
+> A. To ensure that the principles of a just society are created from a position of impartiality, without knowing one's own future place in it.
+
+**Why improvement works:** Attribution is concise ("John Rawls"). Question is direct and uses active voice.
+
+**Note:** The improvement also changes question type from "what is" (definition) to "why" (purpose/rationale), potentially addressing depth. This shows improvements can address multiple issues simultaneously.
+
+---
+
+### Example 4: Redundant Compound Question
+
+**Original (Wordy):**
+> Q. What is cognitive dissonance, and what is the primary motivational mechanism it triggers in an individual?
+> A. A state of mental discomfort from holding conflicting beliefs, which motivates the individual to change one of the beliefs to reduce the discomfort.
+
+**Issues:**
+- Asks two things in one question (also an atomicity issue)
+- "primary motivational mechanism it triggers in an individual" → verbose
+- "motivates the individual to change one of the beliefs to reduce the discomfort" → unnecessarily elaborate
+
+**Improved:**
+> Q. What is cognitive dissonance?
+> A. The mental stress from holding conflicting beliefs, which motivates a change in belief to resolve the conflict.
+
+**Why improvement works:** Asks one thing. Answer is more concise while preserving the key mechanism.
+
+**Note:** This primarily addresses atomicity (compound question), but removing the redundancy also reduces wordiness.
+
+---
+
+### Example 5: Formal Vocabulary and Over-Explanation
+
+**Original (Wordy):**
+> Q. What is the artistic technique known as chiaroscuro, often associated with Baroque painters, and what is its primary aesthetic purpose?
+> A. The use of strong contrasts between light and dark to give the illusion of volume in modeling three-dimensional objects and to create a dramatic effect.
+
+**Issues:**
+- "often associated with Baroque painters" → unnecessary context
+- "primary aesthetic purpose" → verbose
+- Compound question (what + purpose)
+- "to give the illusion of volume in modeling three-dimensional objects" → overly elaborate
+
+**Improved:**
+> Q. How does an artist use chiaroscuro to create drama?
+> A. By using extreme contrasts between light and shadow to model forms and heighten emotional tension.
+
+**Why improvement works:** Removes unnecessary context, makes language more direct ("light and shadow" vs. "light and dark"), focuses on one aspect (drama).
+
+---
+
+### Example 6: Abstract Principle Language
+
+**Original (Wordy):**
+> Q. What is the economic principle of comparative advantage, which explains why trade can be mutually beneficial for two countries even if one is more productive in every industry?
+> A. The principle that countries should specialize in producing goods where they have a lower opportunity cost, and trade for everything else, leading to greater overall efficiency.
+
+**Issues:**
+- Asks for "the principle" then restates it in the question
+- "which explains why trade can be mutually beneficial" → over-explaining
+- "leading to greater overall efficiency" → abstract conclusion added unnecessarily
+- Answer starts with "The principle that" (redundant with question)
+
+**Improved:**
+> Q. Why should a country import a good it can produce more efficiently than its trading partner?
+> A. Because specializing in what it's best at (lowest opportunity cost) and trading creates more overall value than trying to produce everything.
+
+**Why improvement works:** Asks for application rather than abstract principle statement. Uses concrete language ("import a good") instead of abstract ("trade can be beneficial").
+
+**Note:** This also moves from abstract to concrete level, potentially addressing shallow issues. Shows that "improvements" often fix multiple problems.
+
+## Important Note on Improvements
+
+Many of the "improved" versions do more than just remove wordiness:
+- They split compound questions (addressing atomicity)
+- They move from abstract to concrete (addressing depth/shallow issues)
+- They change question types (from "what" to "how" or "why")
+
+This is intentional—real prompts often have multiple issues. When revising for wordiness, you might naturally also improve targeting, depth, or atomicity. The key is that wordiness specifically refers to **unnecessarily complex phrasing and verbose constructions**, which these improvements all address alongside other issues.
+
+## Output Format
+
+You must respond with a JSON like the following:
+
+```json
+{
+    "reason": "A concise explanation for why the prompt is or is not wordy, referencing the principles in the instructions.",
+    "wordy": true/false
+}
+```
+
+where `wordy` is a boolean value indicating whether the provided memory prompt is wordy.

@@ -1,0 +1,205 @@
+# Task
+
+Assess whether a memory prompt is **shallow**—that is, whether it tests surface-level information rather than meaningful understanding. You will receive a source excerpt, a highlight (what the user found noteworthy), and a question-answer pair.
+
+This evaluates one aspect of the "meaningful" criterion from pluckability: whether a memory prompt tests **meaningful understanding** rather than surface-level facts. A shallow prompt might be technically accurate but fails to capture the depth that made the highlight worth remembering in the first place.
+
+The user employs a spaced repetition system that presents prompts at expanding intervals—often months or years apart. An effective memory prompt must satisfy two criteria simultaneously:
+
+1. **Meaningful**: It captures details the user genuinely cares about long-term, not trivialities
+2. **Stable**: It can be consistently retrieved from memory even after months, when reviewed in isolation without access to the original context
+
+## Definition
+
+A good prompt isolates one **meaningful detail** that contributes to understanding—exposing structure, causality, relationships, or principles. A shallow prompt fails to do so, operating at a surface level that doesn't engage with what makes the concept important or memorable.
+
+## What Makes a Prompt Shallow
+
+Prompts become shallow in two main ways:
+
+### 1. Shallow Questions: Seeking Surface Information
+
+The question targets trivial or arbitrary details that don't contribute to understanding. This includes:
+
+- **Counts and labels without significance**: "How many acts?" when the insight is about narrative tension
+- **Locations and names without context**: "Where from?" when the insight is about competing economic pressures
+- **Literal descriptions**: "What does it consist of?" when the insight is about conceptual distinctions
+- **Mechanical facts**: "What does it allow?" when the insight is about systemic function
+
+**Key principle:** Facts like dates, names, locations, or counts are meaningful only when they clarify a concept, mark a turning point, reveal a pattern, or quantify significance. A detail is trivial if forgetting it wouldn't reduce comprehension—if it measures recall rather than understanding.
+
+### 2. Shallow Answers: Oversimplifying or Being Too Vague
+
+The question seeks depth but the answer fails to deliver it. This includes:
+
+- **Vague generalizations instead of concrete specifics**: "Fallen dramatically" when specific statistics (42% to 9%) convey unprecedented magnitude
+- **Surface definitions instead of underlying principles**: "When everyone saves, economy suffers" instead of explaining the fallacy of composition
+- **Mechanical descriptions instead of systemic functions**: "Allows short-term loans" instead of explaining emergency backstop role
+- **"What" answers to "how/why" questions**: Stating a property when asked for a mechanism or causal explanation
+
+**Key principle:** The answer must match the cognitive depth the question seeks. If the question asks *how* or *why*, an answer that merely states *what* is inadequate. Answers that erase key relationships, mechanisms, or structure lack the scaffolding needed for durable understanding.
+
+### When Both Question and Answer Are Shallow
+
+Often the question seeks shallow information AND the answer provides it—both operating at the wrong level. The reformulation must change both to engage with what matters.
+
+## Effective Prompts
+
+Good prompts test **meaningful specifics**—details that expose structure, causality, or relationships. They remain understandable in isolation, balancing concreteness with conceptual depth. Their goal is not exhaustive coverage but faithful capture of a single, durable insight.
+
+**Important nuance:** Sometimes specificity IS the depth. Concrete statistics or vivid details are not shallow when they ARE the insight—when they quantify magnitude, reveal patterns, or make abstract concepts tangible in ways that vague generalizations cannot.
+
+## Examples
+
+The following examples show shallow memory prompts alongside reformulated versions that better capture meaningful understanding.
+
+### Example: Trivial Counts vs. Structural Principles
+
+**Highlight:**
+> The second act, the Confrontation, is the longest
+
+**Interpretation of the highlight within the context of the document:**
+This detail is used to illustrate a key principle of the traditional three-act narrative structure. By stating that the middle act is the longest, the author emphasizes that the bulk of a story is dedicated to developing and escalating conflict (the "rising action"). It's not an arbitrary division of time, but a structural choice that reflects where the narrative "work" of overcoming obstacles happens.
+
+**Original Memory Prompt (Shallow):**
+> Q. How many acts are typically in a story's structure?
+> A. Three.
+
+**Feedback:** Both question and answer are shallow. The question seeks a trivial count (testing recall of a number) while the highlight's insight is about how the three-act structure deliberately manages narrative tension through time allocation. The count matters only as scaffolding for understanding the structural principle.
+
+**Reformulated Memory Prompt:**
+> Q. How does the three-act structure deliberately manage narrative tension?
+> A. By dedicating the longest act—the "Confrontation"—to rising action, where the protagonist faces escalating obstacles, thus building sustained tension before the climax.
+
+---
+
+### Example: Surface Facts vs. Nuanced Dynamics
+
+**Highlight:**
+> This reliance on the DRC is not an absolute; rather, it reflects a complex calculation of cost versus the immense technical challenge of designing cobalt-free batteries.
+
+**Interpretation of the highlight within the context of the document:**
+The author is clarifying the nature of the electric vehicle industry's dependence on cobalt from the Democratic Republic of Congo (DRC). While the DRC is the world's largest producer, the passage argues that this is not due to a global scarcity of the metal. Instead, the DRC's dominance is an economic reality: its vast, high-grade reserves make it the most cost-effective source. The core idea is that the industry's dependency is a precarious trade-off between low costs on one hand, and significant ethical concerns and supply chain risks on the other, which is why there's a powerful push toward developing cobalt-free battery chemistries.
+
+**Original Memory Prompt (Shallow):**
+> Q. Where does most of the cobalt for lithium-ion batteries come from?
+> A. The Democratic Republic of Congo (DRC).
+
+**Feedback:** The question seeks a surface fact (geographic location) while the highlight's insight is about the economic and ethical tensions driving this dependency. Knowing "DRC" is trivial without understanding the competing forces that make this reliance precarious.
+
+**Reformulated Memory Prompt:**
+> Q. What competing forces create tension in the EV industry's use of DRC cobalt?
+> A. Cost pressure (DRC is cheapest) versus risk pressure (ethical concerns, supply instability)—making the reliance precarious and driving cobalt-free battery research.
+
+---
+
+### Example: Literal Descriptions vs. Conceptual Distinctions
+
+**Highlight:**
+> it is pure information, waiting to be realized.
+
+**Interpretation of the highlight within the context of the document:**
+Using the analogy of an architectural blueprint, the author draws a sharp distinction between a plan and its execution. This phrase emphasizes that the blueprint itself is passive and inert—it *does nothing*. The core idea is to separate the abstract design from the active, physical process of *building* that is required to transform the information into a functional object.
+
+**Original Memory Prompt (Shallow):**
+> Q. What does an architectural blueprint consist of?
+> A. A collection of lines and symbols on paper.
+
+**Feedback:** The question seeks a literal description of physical components while the highlight's insight is about the conceptual distinction between passive information (blueprint) and active realization (building). The literal answer doesn't capture what the analogy illuminates.
+
+**Reformulated Memory Prompt:**
+> Q. What does the analogy of "blueprint vs. building" distinguish?
+> A. Blueprint = passive information waiting to be realized; building = the active physical process that instantiates the design.
+
+---
+
+### Example: Vague Generalizations vs. Concrete Statistics
+
+**Highlight:**
+> In 1981, over 42% of the world's population lived on less than what would be equivalent to $2.15 a day. By 2019, that figure had plummeted to just 8.5%.
+
+**Interpretation of the highlight within the context of the document:**
+The author uses these stark, contrasting statistics to quantify the massive, and often underappreciated, success of global poverty reduction efforts over the last 40 years. The point is not just that poverty has decreased, but that the scale of the decline is historically unprecedented, representing one of the most significant positive trends in modern history.
+
+**Original Memory Prompt (Shallow):**
+> Q. What has happened to global rates of extreme poverty since the 1980s?
+> A. They have fallen dramatically.
+
+**Feedback:** The question is good (seeks meaningful trend), but the answer is too vague. "Fallen dramatically" gestures at the insight without conveying it. The specific statistics (42% to 9%) ARE the insight here—they quantify the unprecedented magnitude that makes this historically significant. The concrete numbers convey a scale that "dramatically" only gestures toward. This is a case where specificity IS the depth.
+
+**Reformulated Memory Prompt:**
+> Q. What were the approximate global extreme poverty rates in 1981 vs. 2019?
+> A. Roughly 42% in 1981, falling to under 9% by 2019.
+
+---
+
+### Example: Mechanical Descriptions vs. Systemic Functions
+
+**Highlight:**
+> serve as a "lender of last resort."
+
+**Interpretation of the highlight within the context of the document:**
+This phrase defines the traditional, primary function of the Federal Reserve's discount window. By calling it a "last resort," the author emphasizes that it is designed as an emergency backstop for the financial system, not a routine source of funds. Its purpose is to prevent liquidity crises from causing bank failures, thereby ensuring overall economic stability.
+
+**Original Memory Prompt (Shallow):**
+> Q. What is the purpose of the Fed's discount window?
+> A. It allows commercial banks to take out short-term loans.
+
+**Feedback:** The question could be good but the answer describes only the mechanism (what it does) without explaining the systemic function (why it matters). The insight is that it prevents individual bank crises from becoming systemic failures—this "lender of last resort" role is what makes it significant, not just that loans are available.
+
+**Reformulated Memory Prompt:**
+> Q. How does the Fed prevent a bank's liquidity crisis from becoming systemic?
+> A. As lender of last resort, it provides emergency liquidity through the discount window when other credit sources fail.
+
+---
+
+### Example: Surface Definitions vs. Underlying Principles
+
+**Highlight:**
+> This tension between rational individual action and irrational collective outcome
+
+**Interpretation of the highlight within the context of the document:**
+This phrase captures the essence of the "Paradox of Thrift." The author is explaining that an action that is perfectly sensible for an individual (saving more during a recession) can lead to a disastrous result for the group if everyone does it (a deeper recession). The passage uses this paradox to show that economic systems do not always behave as the simple sum of their parts, highlighting a core principle of Keynesian economics.
+
+**Original Memory Prompt (Shallow):**
+> Q. What is the Paradox of Thrift?
+> A. When everyone saves more money, it can harm the economy.
+
+**Feedback:** The question is fine (asks for a concept), but the answer oversimplifies the underlying principle. The power of this paradox is that it illustrates the fallacy of composition—what's rational individually becomes harmful collectively, showing that economic systems don't behave as the sum of their parts. The simplified answer erases the conceptual structure that makes this insight durable.
+
+**Reformulated Memory Prompt:**
+> Q. What does the Paradox of Thrift illustrate about fallacy of composition?
+> A. That saving is rational individually but harmful collectively—the economy as a whole behaves differently than the sum of individual actions.
+
+---
+
+### Example: Trivial Names vs. Conceptual Significance
+
+**Highlight:**
+> The 1854 cholera outbreak in London, when physician John Snow traced cases to a contaminated water pump on Broad Street
+
+**Interpretation of the highlight within the context of the document:**
+The author uses this historical example to illustrate the birth of epidemiology as a scientific discipline. Snow's insight—that disease patterns could reveal causation—represented a revolutionary shift from prevailing miasma theory. The Broad Street pump case is significant not for its location or the doctor's name, but because it demonstrated that systematic observation and data mapping could identify disease sources, establishing methodology still used today.
+
+**Original Memory Prompt (Shallow):**
+> Q. What was the name of the physician who traced the 1854 London cholera outbreak?
+> A. John Snow.
+
+**Feedback:** The question seeks a trivial name (testing recall of "John Snow") while the highlight's significance is about the methodological revolution in disease investigation. The name matters only as attribution; the insight is about using spatial data to trace disease causation.
+
+**Reformulated Memory Prompt:**
+> Q. What methodological breakthrough did the 1854 Broad Street cholera investigation demonstrate?
+> A. That systematic mapping of disease cases could reveal causation (contaminated water pump), establishing the foundation for modern epidemiology.
+
+## Output Format
+
+You must respond with a JSON like the following:
+
+```json
+{
+    "reason": "A concise explanation for why the memory prompt is or is not shallow",
+    "shallow": true/false
+}
+```
+
+where `shallow` is a boolean value indicating whether the provided memory prompt is shallow.

@@ -1,0 +1,26 @@
+Your task is to identify whether the generated memory prompt is "pluckable": it is well-suited for long-term retention in the user's memory system based on their highlighted text and interpretation. A high-quality, pluckable memory prompt isolates a durable, meaningful insight in a way that is clear, precise, stable, and directly tied to what the user likely found interesting in the source material (as indicated by their highlighted text).
+
+The user employs a spaced repetition system that presents prompts at expanding intervals—often months or years apart. An effective memory prompt must satisfy two criteria simultaneously:
+
+1. **Meaningful**: It captures details the user genuinely cares about long-term, not trivialities
+2. **Stable**: It can be consistently retrieved from memory even after months, when reviewed in isolation without access to the original context
+
+Evaluate the provided `Memory Prompt` against the highlighted text and its interpretation. Determine if it is pluckable and provide a brief justification for your decision.
+
+## High-Level Guidance for Pluckable Prompts
+
+- **Target the Core Insight, Not Surface Details or Decorative Examples.** A user highlight indicates interest in a specific idea, principle, or concept. A pluckable prompt brings the highlighted idea to life by making the essential detail the focus of recall—directly addressing what the user cared about in the source material. An unpluckable prompt often focuses on the wrong detail: testing trivialities or misjudging whether the trees or the forest matter more to the user.
+
+- **Ensure Atomicity and Clarity.** A prompt should test one single, well-defined concept. Unpluckable prompts are often compound questions that test two things simultaneously or use vague, imprecise language. A pluckable prompt uses precise terms from the source to target one piece of knowledge cleanly.
+
+- **Maintain Fidelity to the Highlighted Concept.** A memory prompt must be faithful to the idea the user found interesting. A highlight often serves as an anchor to a self-contained insight—be it a definition, a causal link, or a key distinction. A good prompt correctly identifies this complete, coherent unit of knowledge, even if the highlighted text only captures a part of it. The goal is to make the remembered concept whole and durable. Unpluckable prompts err in one of two ways: they either test a trivial fragment of the insight, leaving it decontextualized, or they introduce external information that goes beyond the core idea the user engaged with.
+
+- **Be Specific and Precise to Ensure Stability.** Prompts are reviewed in isolation, often months or years after creation. A pluckable prompt uses specific, concrete language that remains clear and unambiguous over time. Unpluckable prompts often fail stability in these ways: using generic or abstract framing that becomes vague when context fades ("in terms of X", "regarding Y"); making overgeneralizations or claims that might not hold up to scrutiny; or using wordy constructions that feel "distant and unfamiliar" on long review trajectories. Specificity acts as built-in context—a precise prompt remains self-explanatory even when the original reading context is forgotten.
+
+## Output Format
+
+Your response must be a single JSON object with two keys: `reason` and `pluckable`.
+
+```json
+{"reason": "Provide a concise justification for your decision, referencing the principles above.", "pluckable": true/false}
+```

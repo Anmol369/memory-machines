@@ -1,0 +1,45 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pyright/
+
+# Secrets and local env
+.env
+.env.*
+!.env.example
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# Training artifacts
+memory_machines/training/data/
+memory_machines/training/checkpoints/
+wandb/
+
+# Local scratch directories
+slop/
+repo/
+essay/
+outputs/
+results/
+
+# Local-only Claude config
+.claude/
