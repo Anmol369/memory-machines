@@ -341,6 +341,7 @@ def _print_elo_ratings(df: pd.DataFrame, n_runs: int = 10, k: float = 32.0) -> N
     table = Table(title=f"Elo Ratings (averaged over {n_runs} runs, k={k})")
     table.add_column("Rank", justify="right", style="white")
     table.add_column("Model", style="cyan", no_wrap=True)
+    table.add_column("Release", justify="right", style="white")
     table.add_column("Elo", justify="right", style="yellow")
     table.add_column("Usable %", justify="right", style="green")
     table.add_column("Highlights", justify="right", style="white")
@@ -356,10 +357,13 @@ def _print_elo_ratings(df: pd.DataFrame, n_runs: int = 10, k: float = 32.0) -> N
         win_rate = wlt["wins"] / total_games if total_games > 0 else 0
         n_highlights = highlights_per_model.get(model, 0)
         usable_pct = tier_stats_per_model.get(model, {}).get("usable_pct", 0)
+        model_key = _strip_model_suffix(model)
+        release_date = MODEL_RELEASE_DATES.get(model_key, "unknown")
 
         table.add_row(
             str(rank),
             model,
+            release_date,
             f"{rating:.1f}",
             f"{usable_pct:.1%}",
             str(n_highlights),
@@ -387,6 +391,7 @@ MODEL_RELEASE_DATES = {
     "claude-opus-4-6": "2026-02-05",
     "gemini-3.1-pro-preview": "2026-02-19",
     "gpt-5.4": "2026-03-05",
+    "claude-opus-4-7": "2026-04-16",
 }
 
 
@@ -414,6 +419,7 @@ MODEL_PRETTY_NAMES = {
     "claude-opus-4-6": "Claude Opus 4.6",
     "gemini-3.1-pro-preview": "Gemini 3.1 Pro",
     "gpt-5.4": "GPT-5.4",
+    "claude-opus-4-7": "Claude Opus 4.7",
 }
 
 
