@@ -41,5 +41,6 @@ essay/
 outputs/
 results/
 
-# Local-only Claude config
-.claude/
+# Local-only Claude config (but ship the memory-machine skill)
+.claude/*
+!.claude/skills/
